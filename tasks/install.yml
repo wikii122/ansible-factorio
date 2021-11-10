@@ -1,0 +1,26 @@
+---
+- name: Creating system user
+  user:
+    name: "{{ factorio_user }}"
+    state: present
+    shell: '{{ os_nologin_shell_path }}'
+    createhome: no
+    comment: 'Created by Ansible'
+    system: yes
+
+- name: Creating root directory
+  file:
+    path: "{{ factorio_path }}"
+    state: directory
+    owner: "{{ factorio_user }}"
+    mode: '0755'
+
+
+- name: Downloading server files
+  unarchive:
+    src: "{{ factorio_headless_url }}"
+    dest: "{{ factorio_path }}"
+    owner: "{{ factorio_user }}"
+    remote_src: yes
+    force: yes
+

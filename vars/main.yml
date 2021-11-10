@@ -1,0 +1,3 @@
+---
+# vars file for factorio
+factorio_headless_url: "https://www.factorio.com/get-download/{{ factorio_version }}/headless/linux64"

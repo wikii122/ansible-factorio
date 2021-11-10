@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Wiktor Ślęczka
+  namespace: wikii122
+  role_name: factorio
+  description: Deploy factorio headless server
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: ubunut
+    versions:
+    - all
+
+  galaxy_tags: [games]
+
+dependencies: []

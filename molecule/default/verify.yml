@@ -1,0 +1,15 @@
+---
+# This is an example playbook to execute Ansible tests.
+- name: Verify as service user
+  hosts: all
+  vars:
+    ansible_user: "factorio"
+  tasks:
+  - name: State main binary
+    stat:
+      path: "/srv/factorio/factorio"
+    register: factorio_binary
+
+  - name: Check if executable exists
+    assert:
+      that: factorio_binary.stat.executable is true
