@@ -1,6 +1,5 @@
 ---
 - name: Creating system user
-  become: yes
   user:
     name: "{{ factorio_user }}"
     state: present
@@ -18,7 +17,6 @@
     force: yes
 
 - name: Creating systemd unit
-  become: yes
   template:
     src: systemd.service
     dest: /etc/systemd/system/factorio.service

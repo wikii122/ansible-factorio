@@ -1,7 +1,16 @@
 ---
-# defaults file for factorio
-factorio_user: factorio
+# defaults for credentials must be filled for public game
+factorio_credentials:
+  username: ''
+  token: ''
+
+factorio_admin_pause: True
+factorio_game_name: Factorio game
+factorio_game_password: ''
+factorio_max_players: 12
 factorio_path: /srv/
+factorio_public: true
+factorio_user: factorio
 factorio_version: stable
 
 os_nologin_shell_path: "/usr/sbin/nologin"

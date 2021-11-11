@@ -1,0 +1,17 @@
+---
+- name: Creating map settings
+  copy:
+    src: "{{ item }}"
+    dest: "{{ factorio_full_path }}/data/{{ item }}"
+    owner: "{{ factorio_user }}"
+    mode: "0644"
+  loop:
+  - map-gen-settings.json
+  - map-settings.json
+
+- name: Creating server settings
+  template:
+    src: server-settings.json.j2
+    dest: "{{ factorio_full_path }}/data/server-settings.json"
+    owner: "{{ factorio_user }}"
+    mode: "0644"

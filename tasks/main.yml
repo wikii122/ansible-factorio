@@ -1,4 +1,8 @@
 ---
 # tasks file for factorio
 - name: Installing server
+  become: yes
   import_tasks: install.yml
+
+- name: Configuring server
+  import_tasks: configure.yml
