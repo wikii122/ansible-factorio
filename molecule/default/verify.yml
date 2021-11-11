@@ -7,7 +7,7 @@
   tasks:
   - name: State main binary
     stat:
-      path: "/srv/factorio/factorio"
+      path: "/srv/factorio/bin/x64/factorio"
     register: factorio_binary
 
   - name: Check if executable exists

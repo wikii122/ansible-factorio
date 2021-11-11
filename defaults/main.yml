@@ -1,7 +1,7 @@
 ---
 # defaults file for factorio
 factorio_user: factorio
-factorio_path: /srv/factorio
+factorio_path: /srv/
 factorio_version: stable
 
 os_nologin_shell_path: "/usr/sbin/nologin"

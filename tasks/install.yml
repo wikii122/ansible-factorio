@@ -1,5 +1,6 @@
 ---
 - name: Creating system user
+  become: yes
   user:
     name: "{{ factorio_user }}"
     state: present
@@ -7,14 +8,6 @@
     createhome: no
     comment: 'Created by Ansible'
     system: yes
-
-- name: Creating root directory
-  file:
-    path: "{{ factorio_path }}"
-    state: directory
-    owner: "{{ factorio_user }}"
-    mode: '0755'
-
 
 - name: Downloading server files
   unarchive:
@@ -24,3 +17,11 @@
     remote_src: yes
     force: yes
 
+- name: Creating systemd unit
+  become: yes
+  template:
+    src: systemd.service
+    dest: /etc/systemd/system/factorio.service
+    owner: root
+    group: root
+    mode: '0644'
