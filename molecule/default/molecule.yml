@@ -5,8 +5,7 @@ driver:
   name: docker
 platforms:
 - name: instance
-  dockerfile: Dockerfile.j2
-  pre_build_image: no
+  pre_build_image: yes
   image: solita/ubuntu-systemd:latest
   command: /sbin/init
   capabilities:
