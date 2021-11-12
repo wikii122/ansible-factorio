@@ -3,3 +3,5 @@
 factorio_headless_url: "https://www.factorio.com/get-download/{{ factorio_version }}/headless/linux64"
 factorio_full_path: "{{ factorio_path }}/factorio"
 factorio_executable_path: "{{ factorio_full_path }}/bin/x64/factorio"
+
+testing: molecule_yml is not defined
