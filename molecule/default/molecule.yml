@@ -4,10 +4,23 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/pycontribs/ubuntu
-    pre_build_image: true
+- name: instance
+  dockerfile: Dockerfile.j2
+  pre_build_image: no
+  image: solita/ubuntu-systemd:latest
+  command: /sbin/init
+  capabilities:
+  - SYS_ADMIN
+  - NET_ADMIN
+  volumes:
+  - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
+  host_vars:
+    instance:
+      ansible_user: ansible
 verifier:
   name: ansible
+  host_vars:
+    instance:
+      ansible_user: ansible

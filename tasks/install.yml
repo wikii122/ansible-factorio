@@ -14,7 +14,7 @@
     dest: "{{ factorio_path }}"
     owner: "{{ factorio_user }}"
     remote_src: yes
-    force: yes
+    validate_certs: "{{ not testing }}"
 
 - name: Creating systemd unit
   template:
