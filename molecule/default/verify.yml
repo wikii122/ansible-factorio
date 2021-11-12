@@ -1,9 +1,7 @@
 ---
 # This is an example playbook to execute Ansible tests.
-- name: Verify as service user
+- name: Verify as user
   hosts: all
-  vars:
-    ansible_user: "factorio"
   tasks:
   - name: State main binary
     stat:
