@@ -1,18 +1,11 @@
 ---
-- name: Install python
-  hosts: all
-  gather_facts: no
-  tasks:
-  - name: Install Python
-    raw: apt -y update && apt install -y python3
-
 - name: Prepare
   hosts: all
+  become: yes
   tasks:
   - name: Install packages
     apt:
       name:
-      - sudo
       - xz-utils
       - unzip
       update_cache: yes

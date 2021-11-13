@@ -2,24 +2,13 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: vagrant
 platforms:
 - name: instance
-  pre_build_image: yes
-  image: solita/ubuntu-systemd:latest
-  command: /sbin/init
-  capabilities:
-  - SYS_ADMIN
-  - NET_ADMIN
-  volumes:
-  - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  box: "hashicorp/bionic64"
+  provider_raw_config_args:
+  - 'customize ["modifyvm", :id, "--uartmode1", "disconnected"]'
 provisioner:
   name: ansible
-  host_vars:
-    instance:
-      ansible_user: ansible
 verifier:
   name: ansible
-  host_vars:
-    instance:
-      ansible_user: ansible

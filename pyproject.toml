@@ -8,11 +8,14 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.9"
 ansible = "^4.8.0"
-molecule = {extras = ["docker"], version = "^3.5.2"}
+poetry = "^1.1.11"
 
 [tool.poetry.dev-dependencies]
-molecule = "molecule[docker]"
 ansible-lint = "^5.2.1"
+molecule = "^3.5.2"
+molecule-vagrant = "^0.6.3"
+python-vagrant = "^0.5.15"
+molecule-docker = "^1.1.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
