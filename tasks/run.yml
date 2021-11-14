@@ -1,0 +1,5 @@
+---
+- name: Creating savegame
+  command: "{{ factorio_executable_path }} --create {{ factorio_save_path }}"
+  args:
+    creates: "{{ factorio_save_path }}"

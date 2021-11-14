@@ -8,3 +8,8 @@
   become: yes
   become_user: "{{ factorio_user }}"
   import_tasks: configure.yml
+
+- name: Starting server
+  become: yes
+  become_user: "{{ factorio_user }}"
+  import_tasks: run.yml
