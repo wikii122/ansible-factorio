@@ -1,5 +1,5 @@
 [Unit]
-Descritpion=Factorio Headless Server
+Description=Factorio Headless Server
 
 After=network.target
 After=systemd-user-sessions.service
@@ -10,6 +10,7 @@ Requires=factorio.socket
 [Service]
 Type=simple
 User=factorio
+Group=factorio
 WorkingDirectory={{ factorio_full_path }}
 
 Restart=always
