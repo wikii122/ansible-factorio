@@ -1,6 +1,8 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+  - factorio_public: false
   tasks:
   - name: "Include factorio"
     include_role:
