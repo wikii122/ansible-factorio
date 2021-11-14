@@ -1,5 +1,17 @@
 ---
 - name: Creating savegame
+  become: yes
+  become_user: "{{ factorio_user }}"
   command: "{{ factorio_executable_path }} --create {{ factorio_save_path }}"
   args:
     creates: "{{ factorio_save_path }}"
+  notify:
+  - restart factorio
+
+- name: Starting server
+  become: yes
+  systemd:
+    name: factorio
+    state: started
+    daemon_reload: yes
+    enabled: yes
