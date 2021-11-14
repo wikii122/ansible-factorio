@@ -2,11 +2,27 @@
 - name: Creating savegame
   become: yes
   become_user: "{{ factorio_user }}"
-  command: "{{ factorio_executable_path }} --create {{ factorio_save_path }}"
-  args:
-    creates: "{{ factorio_save_path }}"
-  notify:
-  - restart factorio
+  vars:
+    ansible_remote_temp: /tmp/
+  block:
+  - name: Uploading savegame
+    copy:
+      src: "{{ factorio_upload_save }}"
+      dest: "{{ factorio_save_path }}"
+      force: no
+      owner: "{{ factorio_user }}"
+      group: "{{ factorio_user }}"
+      mode: "0755"
+    when: factorio_upload_save is defined
+    notify:
+    - restart factorio
+
+  - name: Creating savegame if not exists
+    command: "{{ factorio_executable_path }} --create {{ factorio_save_path }}"
+    args:
+      creates: "{{ factorio_save_path }}"
+    notify:
+    - restart factorio
 
 - name: Starting server
   systemd:

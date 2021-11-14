@@ -10,6 +10,8 @@
   block:
   - name: Configuring server
     become_user: "{{ factorio_user }}"
+    vars:
+      ansible_remote_tmp: /tmp
     import_tasks: configure.yml
 
   - name: Copying mods
