@@ -8,6 +8,8 @@
   loop:
   - map-gen-settings.json
   - map-settings.json
+  notify:
+  - restart factorio
 
 - name: Creating server settings
   template:
@@ -15,3 +17,5 @@
     dest: "{{ factorio_full_path }}/data/server-settings.json"
     owner: "{{ factorio_user }}"
     mode: "0644"
+  notify:
+  - restart factorio
