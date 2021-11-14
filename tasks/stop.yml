@@ -1,0 +1,17 @@
+
+- name: Stopping server
+  become: yes
+  block:
+  - name: Stopping server
+    systemd:
+      name: factorio
+      state: stopped
+      daemon_reload: yes
+      enabled: no
+
+  - name: Close port on firewall
+    community.general.ufw:
+      rule: allow
+      port: "{{ factorio_port }}"
+      proto: udp
+      delete: yes

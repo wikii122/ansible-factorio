@@ -9,9 +9,14 @@
   - restart factorio
 
 - name: Starting server
-  become: yes
   systemd:
     name: factorio
     state: started
     daemon_reload: yes
     enabled: yes
+
+- name: Open port on firewall
+  community.general.ufw:
+    rule: allow
+    port: "{{ factorio_port }}"
+    proto: udp

@@ -11,8 +11,10 @@ factorio_game_password: ''
 factorio_max_players: 12
 factorio_mod_dir: mods/
 factorio_path: /opt
+factorio_port: 34197
 factorio_public: no
 factorio_save_name: savegame.zip
+factorio_stop_server: no
 factorio_user: factorio
 factorio_version: stable
 

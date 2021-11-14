@@ -4,15 +4,21 @@
   become: yes
   import_tasks: install.yml
 
-- name: Configuring server
-  become: yes
-  become_user: "{{ factorio_user }}"
-  import_tasks: configure.yml
-
-- name: Copying mods
-  become: yes
-  become_user: "{{ factorio_user }}"
-  import_tasks: mods.yml
-
 - name: Starting server
-  import_tasks: run.yml
+  become: yes
+  when: not factorio_stop_server
+  block:
+  - name: Configuring server
+    become_user: "{{ factorio_user }}"
+    import_tasks: configure.yml
+
+  - name: Copying mods
+    become_user: "{{ factorio_user }}"
+    import_tasks: mods.yml
+
+  - name: Starting server
+    import_tasks: run.yml
+
+- name: Stopping server
+  include_tasks: stop.yml
+  when: factorio_stop_server

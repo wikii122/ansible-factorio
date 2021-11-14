@@ -7,5 +7,6 @@
     apt:
       name:
       - xz-utils
+      - ufw
       - unzip
       update_cache: yes
