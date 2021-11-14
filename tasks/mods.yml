@@ -8,3 +8,4 @@
       dest: "{{ factorio_full_path }}/mods"
       owner: "{{ factorio_user }}"
       group: "{{ factorio_user }}"
+      backup: yes
