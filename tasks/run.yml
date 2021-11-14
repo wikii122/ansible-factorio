@@ -3,7 +3,7 @@
   become: yes
   become_user: "{{ factorio_user }}"
   vars:
-    ansible_remote_temp: /tmp/
+    ansible_remote_tmp: /tmp/
   block:
   - name: Uploading savegame
     copy:
