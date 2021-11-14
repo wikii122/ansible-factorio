@@ -10,7 +10,7 @@ factorio_game_name: Factorio game
 factorio_game_password: ''
 factorio_max_players: 12
 factorio_mod_dir: mods/
-factorio_path: /srv
+factorio_path: /opt
 factorio_public: no
 factorio_save_name: savegame.zip
 factorio_user: factorio
