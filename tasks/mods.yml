@@ -1,0 +1,10 @@
+---
+- name: Copying mods from controller
+  when: factorio_copy_mods
+  block:
+  - name: Copying supplied mod directory
+    copy:
+      src: "{{ factorio_mod_dir }}"
+      dest: "{{ factorio_full_path }}/mods"
+      owner: "{{ factorio_user }}"
+      group: "{{ factorio_user }}"

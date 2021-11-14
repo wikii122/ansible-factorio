@@ -9,5 +9,10 @@
   become_user: "{{ factorio_user }}"
   import_tasks: configure.yml
 
+- name: Copying mods
+  become: yes
+  become_user: "{{ factorio_user }}"
+  import_tasks: mods.yml
+
 - name: Starting server
   import_tasks: run.yml
