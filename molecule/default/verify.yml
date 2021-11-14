@@ -3,11 +3,23 @@
 - name: Verify as user
   hosts: all
   tasks:
-  - name: State main binary
+  - name: Stating main binary
     stat:
       path: "/srv/factorio/bin/x64/factorio"
     register: factorio_binary
 
-  - name: Check if executable exists
+  - name: Checking if executable exists
     assert:
       that: factorio_binary.stat.executable is true
+
+  - name: Ensuring service is started
+    systemd:
+      name: factorio
+      state: started
+    register: service
+
+  - name: Checking service state
+    assert:
+      that:
+      - service is not changed
+      - service.status.ActiveState == active
