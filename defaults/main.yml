@@ -4,12 +4,13 @@ factorio_credentials:
   username: ''
   token: ''
 
-factorio_admin_pause: True
+factorio_admin_pause: true
 factorio_game_name: Factorio game
 factorio_game_password: ''
 factorio_max_players: 12
-factorio_path: /srv/
+factorio_path: /srv
 factorio_public: true
+factorio_save_name: savegame.zip
 factorio_user: factorio
 factorio_version: stable
 
