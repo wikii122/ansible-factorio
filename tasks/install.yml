@@ -28,6 +28,14 @@
   notify:
   - restart factorio
 
+- name: Ensuring correct file ownership
+  file:
+    path: "{{ factorio_full_path }}"
+    state: directory
+    recurse: yes
+    owner: "{{ factorio_user }}"
+    group: "{{ factorio_user }}"
+
 - name: Creating systemd units
   template:
     src: "systemd.{{ item }}"
