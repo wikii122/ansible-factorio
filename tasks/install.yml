@@ -8,18 +8,32 @@
     comment: 'Created by Ansible'
     system: yes
 
+- name: Create server directory
+  file:
+    path: "{{ factorio_full_path }}"
+    state: directory
+    owner: "{{ factorio_user }}"
+    group: "{{ factorio_user }}"
+    mode: "0755"
+
 - name: Downloading server files
   unarchive:
     src: "{{ factorio_headless_url }}"
     dest: "{{ factorio_path }}"
     owner: "{{ factorio_user }}"
+    group: "{{ factorio_user }}"
+    mode: "0755"
     remote_src: yes
     validate_certs: "{{ not testing }}"
 
-- name: Creating systemd unit
+- name: Creating systemd units
   template:
-    src: systemd.service
-    dest: /etc/systemd/system/factorio.service
+    src: "systemd.{{ item }}"
+    dest: "/etc/systemd/system/factorio.{{ item }}"
     owner: root
     group: root
     mode: '0644'
+  loop:
+  - service
+  - socket
+

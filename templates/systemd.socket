@@ -1,0 +1,6 @@
+[Unit]
+Description=Input stream for factorio service
+
+[Socket]
+Service=factorio.service
+ListenFIFO={{ factorio_full_path }}/in.socket

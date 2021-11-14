@@ -1,16 +1,25 @@
 [Unit]
 Descritpion=Factorio Headless Server
+
 After=network.target
 After=systemd-user-sessions.service
 After=network-online.target
+
+Requires=factorio.socket
 
 [Service]
 Type=simple
 User=factorio
 WorkingDirectory={{ factorio_full_path }}
+
 Restart=always
 
-ExecStart="{{ factorio_executable_path }} --start-server savegame.zip --server-settings {{ factorio_full_path }}/data/server-settings.json"
+ExecStart={{ factorio_executable_path }} --start-server {{ factorio_save_path}} --server-settings {{ factorio_full_path }}/data/server-settings.json
+
+Sockets=factorio.socket
+StandardInput=socket
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
