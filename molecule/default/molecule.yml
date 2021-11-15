@@ -8,6 +8,7 @@ platforms:
   box: "hashicorp/bionic64"
   provider_raw_config_args:
   - 'customize ["modifyvm", :id, "--uartmode1", "disconnected"]'
+  - 'customize ["modifyvm", :id, "--groups", "/Molecule Instances"]'
 provisioner:
   name: ansible
 verifier:
