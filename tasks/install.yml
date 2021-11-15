@@ -35,6 +35,7 @@
     recurse: yes
     owner: "{{ factorio_user }}"
     group: "{{ factorio_user }}"
+    mode: "0755"
 
 - name: Creating systemd units
   template:
