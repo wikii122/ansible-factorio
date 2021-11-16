@@ -16,6 +16,9 @@ WorkingDirectory={{ factorio_full_path }}
 Restart=always
 
 ExecStart={{ factorio_executable_path }} --start-server {{ factorio_save_path}} --server-settings {{ factorio_full_path }}/data/server-settings.json
+ExecStop=echo "Server will stop shortly" > {{ factorio_full_path }}/in.socket
+ExecStop=sleep 4
+ExecStop=kill -2 $MAINPID
 
 Sockets=factorio.socket
 StandardInput=socket
@@ -23,4 +26,4 @@ StandardOutput=journal
 StandardError=journal
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.targes
