@@ -6,27 +6,61 @@ Create headless Factorio server
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None additional requirements
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+    factorio_credentials:
+      username: ''
+      password: ''
+      token: ''
+
+    factorio_admin_pause: yes
+    factorio_copy_mods: no
+    factorio_game_name: Factorio game
+    factorio_game_password: ''
+    factorio_max_players: 12
+    factorio_mod_dir: mods/
+    factorio_path: /opt
+    factorio_port: 34197
+    factorio_public: no
+    factorio_save_name: savegame.zip
+    factorio_stop_server: no
+    factorio_user: factorio
+    factorio_version: stable
+
+    factorio_upload_save: # Undefined, when defined will upload provided save to server
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role does not depend on any other role
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+To use the role you must simply define following playbook:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+      - wikii122.factorio
 
+To start public server define some configuration changes:
+
+    - hosts: servers
+      roles:
+      - role: wikii122.factorio
+        factorio_public: yes
+        factorio_credentials: <your credentials>
+
+To copy mods put those on your controller and put on the path
+
+    - hosts: servers
+      roles:
+      - role: wikii122.factorio
+        factorio_copy_mods: yes
+        factorio_mod_dir: <path_to_factorio_dir>/mods
 License
 -------
 
