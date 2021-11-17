@@ -40,4 +40,4 @@ An optional section for the role authors to include contact information, or a we
 Thank you
 ------------------
 
-A big thank you to Wube for making Factorio
+A big thank you to [Wube](https://www.factorio.com/game/about) for making [Factorio](https://www.factorio.com/)
