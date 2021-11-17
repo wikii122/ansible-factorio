@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Create headless Factorio server
 
 Requirements
 ------------
@@ -30,9 +30,14 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+This code is realeased with the MIT license, see the LICENSE file.
 
 Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+Thank you
+------------------
+
+A big thank you to Wube for making Factorio
