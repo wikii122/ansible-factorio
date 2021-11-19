@@ -4,6 +4,7 @@ factorio_credentials:
   username: ''
   token: ''
 
+factorio_admin_list:
 factorio_admin_pause: yes
 factorio_copy_mods: no
 factorio_game_name: Factorio game

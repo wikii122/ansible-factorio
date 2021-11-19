@@ -30,7 +30,7 @@
 
 - name: Ensuring correct file ownership
   file:
-    path: "{{ factorio_full_path }}"
+    path: "{{ factorio_full_path }}/bin"
     state: directory
     recurse: yes
     owner: "{{ factorio_user }}"

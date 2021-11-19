@@ -4,7 +4,7 @@
     src: "{{ item }}"
     dest: "{{ factorio_full_path }}/data/{{ item }}"
     owner: "{{ factorio_user }}"
-    mode: "0755"
+    mode: "0644"
   loop:
   - map-gen-settings.json
   - map-settings.json
@@ -16,6 +16,16 @@
     src: server-settings.json.j2
     dest: "{{ factorio_full_path }}/data/server-settings.json"
     owner: "{{ factorio_user }}"
-    mode: "0755"
+    mode: "0644"
+  notify:
+  - restart factorio
+
+- name: Creating admin list
+  copy:
+    content: "{{ factorio_admin_list | to_json }}"
+    dest: "{{ factorio_full_path }}/server-adminlist.json"
+    owner: "{{ factorio_user }}"
+    mode: "0644"
+  when: factorio_admin_list
   notify:
   - restart factorio
