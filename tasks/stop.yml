@@ -1,6 +1,6 @@
 
 - name: Stopping server
-  become: yes
+  become: true
   block:
   - name: Stopping server
     systemd:
