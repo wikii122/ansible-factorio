@@ -4,13 +4,10 @@
   block:
   - name: Stopping server
     systemd:
-      name: "{{ item }}"
+      name: factorio
       state: stopped
       daemon_reload: yes
       enabled: no
-    loop:
-    - factorio
-    - factorio.socket
 
   - name: Close port on firewall
     community.general.ufw:
