@@ -26,7 +26,7 @@ Role Variables
     factorio_port: 34197
     factorio_public: no
     factorio_save_name: savegame.zip
-    factorio_stop_server: no
+    factorio_run_server: yes
     factorio_user: factorio
     factorio_version: stable
 

@@ -6,7 +6,7 @@
 
 - name: Starting server
   become: yes
-  when: not factorio_stop_server
+  when: factorio_run_server
   block:
   - name: Configuring server
     become_user: "{{ factorio_user }}"
@@ -23,4 +23,4 @@
 
 - name: Stopping server
   include_tasks: stop.yml
-  when: factorio_stop_server
+  when: not factorio_run_server
